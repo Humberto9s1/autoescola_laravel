@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class CadInstrutoresController extends Controller
 {
     public function index(){
-        $inst = instrutore::orderby('id', 'desc')->paginate();
-        return view('painel-admin.instrutores.index', ['inst' => $inst]);
+        $tabela = instrutore::orderby('id', 'desc')->paginate();
+        return view('painel-admin.instrutores.index', ['itens' => $tabela]);
     }
 }

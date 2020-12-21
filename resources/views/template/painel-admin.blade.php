@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="Hugo Vasconcelos">
 
-        <title>Painel Administrativo</title>
+        <title>@yield('title')</title>
 
         <!-- Custom fonts for this template-->
         <link href="{{ URL::asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
