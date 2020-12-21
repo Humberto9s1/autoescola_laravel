@@ -22,15 +22,18 @@ class UsuarioController extends Controller
             $_SESSION['cpf_usuario'] = $usuarios->cpf;
             
             if($_SESSION['nivel_usuario'] == 'admin'){
-                return view('produtos.create');
-            }else{
-                $produtos = produto::orderby('id', 'desc')->paginate();
-                return view('produtos.index', ['produtos' => $produtos]);
+                return view('painel-admin.index');
+            }
+            
+            if($_SESSION['nivel_usuario'] == 'instrutor'){
+                return view('painel-instrutor.index');
+            }
+
+            if($_SESSION['nivel_usuario'] == 'recpt'){
+                return view('painel-recepcao.index');
             }
             
             
-    	    
-
         }else{
             echo "<script language='javascript'> window.alert('Dados Incorretos!') </script>";
             return view('home');
