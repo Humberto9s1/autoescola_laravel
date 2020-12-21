@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::post('painel', [UsuarioController::class, 'login'])->name('usuarios.login');
-Route::post('instrutores', [CadInstrutoresController::class, 'index'])->name('instrutores.index');
+Route::get('instrutores', [CadInstrutoresController::class, 'index'])->name('instrutores.index');
