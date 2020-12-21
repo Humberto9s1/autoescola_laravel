@@ -213,17 +213,17 @@
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label >Nome</label>
-                                        <input value="<?php echo $nome ?>" type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                                        <input value="" type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
                                     </div>
 
                                     <div class="form-group">
                                         <label >CPF</label>
-                                        <input value="<?php echo $cpf ?>" type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
+                                        <input value="" type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
                                     </div>
 
                                     <div class="form-group">
                                         <label >Email</label>
-                                        <input value="<?php echo $email ?>" type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                        <input value="" type="email" class="form-control" id="email" name="email" placeholder="Email">
                                     </div>
 
                                     <div class="form-group">
@@ -231,35 +231,10 @@
                                         <input value="" type="password" class="form-control" id="text" name="senha" placeholder="Senha">
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <div class="col-md-12 form-group">
-                                        <label>Foto</label>
-                                        <input value="<?php echo $img ?>" type="file" class="form-control-file" id="imagem" name="imagem" onchange="carregarImg();">
-
-                                    </div>
-                                    <div class="col-md-12 mb-2">
-                                        <img src="../img/profiles/<?php echo $img ?>" alt="Carregue sua Imagem" id="target" width="100%">
-                                    </div>
-                                </div>
                             </div> 
-
-
-
-                            <small>
-                                <div id="mensagem" class="mr-4">
-
-                                </div>
-                            </small>
-
-
 
                         </div>
                         <div class="modal-footer">
-
-
-
-                            <input value="<?php echo $idUsuario ?>" type="hidden" name="txtid" id="txtid">
-                            <input value="<?php echo $cpf ?>" type="hidden" name="antigo" id="antigo">
 
                             <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" name="btn-salvar-perfil" id="btn-salvar-perfil" class="btn btn-primary">Salvar</button>
