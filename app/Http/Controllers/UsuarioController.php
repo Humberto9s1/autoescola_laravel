@@ -46,7 +46,7 @@ class UsuarioController extends Controller
     public function logout(){
        @session_start();
        @session_destroy();
-       return view('home');
+       return view('index');
     }
 
 }
