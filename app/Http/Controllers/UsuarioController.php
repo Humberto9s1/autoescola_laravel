@@ -36,9 +36,8 @@ class UsuarioController extends Controller
             
         }else{
             echo "<script language='javascript'> window.alert('Dados Incorretos!') </script>";
-            return view('home');
-        }
-        
+            return view('index');
+        }      
        
     }
 

@@ -69,7 +69,8 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 </style></head><body>
 <div class="login">
 	<h1>Login</h1>
-    <form method="post" action="">
+    <form method="post" action="{{route('usuarios.login')}}">
+		@csrf
     	<input type="text" name="usuario" placeholder="Seu email ou CPF" required="required" />
         <input type="password" name="senha" placeholder="Senha" required="required" />
         <button type="submit" class="btn btn-info btn-block btn-large">Login</button>
