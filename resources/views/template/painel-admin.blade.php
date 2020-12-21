@@ -1,22 +1,5 @@
-<?php 
-
-    //variaveis para o menu
-    $pag = @$_GET["pag"];
-    $menu1 = "corretores";
-    $menu2 = "tesoureiros";
-    $menu3 = "cidade";
-    $menu4 = "bairro";
-    $menu5 = "tipo";
-    $menu6 = "tarefas";
-    $menu7 = "vendas";
-    $menu8 = "alugueis";
-
- ?>
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
     <head>
 
@@ -29,19 +12,19 @@
         <title>Painel Administrativo</title>
 
         <!-- Custom fonts for this template-->
-        <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ URL::asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-        <link href="../css/style.css" rel="stylesheet">
+        <link href="{{ URL::asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+        <link href="{{ URL::asset('css/style.css')}}" rel="stylesheet">
         
-        <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <link href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
 
         <!-- Bootstrap core JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ URL::asset('vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         
          <link rel="shortcut icon" href="../../img/favicon0.ico" type="image/x-icon">
     <link rel="icon" href="../../img/favicon0.ico" type="image/x-icon">
@@ -84,9 +67,8 @@
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">PESSOAS:</h6>
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu1 ?>">Corretores</a>
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu2 ?>">Tesoureiros</a>
+                            <a class="collapse-item" href="">Instrutores</a>
+                            <a class="collapse-item" href="">Recepcionistas</a>
                         </div>
                     </div>
                 </li>
@@ -100,9 +82,9 @@
                     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Dados Imóveis:</h6>
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu3 ?>">Cidade</a>
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu4 ?>">Bairro</a>
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu5 ?>">Tipo</a>
+                            <a class="collapse-item" href="">Cidade</a>
+                            <a class="collapse-item" href="">Bairro</a>
+                            <a class="collapse-item" href="">Tipo</a>
 
                         </div>
                     </div>
@@ -120,22 +102,9 @@
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?pag=<?php echo $menu6 ?>">
+                    <a class="nav-link" href="">
                         <i class="fas fa-fw fa-chart-area"></i>
                         <span>Agenda Corretores</span></a>
-                </li>
-
-                <!-- Nav Item - Tables -->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?pag=<?php echo $menu7 ?>">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Imóveis Vendidos</span></a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?pag=<?php echo $menu8 ?>">
-                        <i class="fas fa-fw fa-table"></i>
-                        <span>Imóveis Alugados</span></a>
                 </li>
 
                 <!-- Divider -->
@@ -200,39 +169,7 @@
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
 
-                        <?php if ($pag == null) { 
-                        include_once("home.php"); 
-                        
-                        } else if ($pag==$menu1) {
-                        include_once($menu1.".php");
-                        
-                        } else if ($pag==$menu2) {
-                        include_once($menu2.".php");
-
-                         } else if ($pag==$menu3) {
-                        include_once($menu3.".php");
-
-                        } else if ($pag==$menu4) {
-                        include_once($menu4.".php");
-
-                        } else if ($pag==$menu5) {
-                        include_once($menu5.".php");
-
-                        } else if ($pag==$menu6) {
-                        include_once($menu6.".php");
-
-                        } else if ($pag==$menu7) {
-                        include_once($menu7.".php");
-
-                        } else if ($pag==$menu8) {
-                        include_once($menu8.".php");
-                        
-                        } else {
-                        include_once("home.php");
-                        }
-                        ?>
-                        
-                        
+                       @yield('content')
 
                     </div>
                     <!-- /.container-fluid -->
@@ -358,6 +295,3 @@
     </body>
 
 </html>
-
-
-
