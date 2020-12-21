@@ -29,7 +29,7 @@ class UsuarioController extends Controller
                 return view('painel-instrutor.index');
             }
 
-            if($_SESSION['nivel_usuario'] == 'recpt'){
+            if($_SESSION['nivel_usuario'] == 'recep'){
                 return view('painel-recepcao.index');
             }
             
