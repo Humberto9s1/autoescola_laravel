@@ -1,16 +1,9 @@
 <?php 
 
     //variaveis para o menu
-    $pag = @$_GET["pag"];
-    $menu1 = "corretores";
-    $menu2 = "tesoureiros";
-    $menu3 = "cidade";
-    $menu4 = "bairro";
-    $menu5 = "tipo";
-    $menu6 = "tarefas";
-    $menu7 = "vendas";
-    $menu8 = "alugueis";
-
+    $menu1 = "instrutores";
+    $menu2 = "recep";
+    
  ?>
 
 
@@ -84,9 +77,8 @@
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">PESSOAS:</h6>
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu1 ?>">Corretores</a>
-                            <a class="collapse-item" href="index.php?pag=<?php echo $menu2 ?>">Tesoureiros</a>
+                            <a class="collapse-item" href="index.php?pag=<?php echo $menu1 ?>">Instrutores</a>
+                            <a class="collapse-item" href="index.php?pag=<?php echo $menu2 ?>">Recepcionistas</a>
                         </div>
                     </div>
                 </li>
@@ -201,7 +193,7 @@
                     <div class="container-fluid">
 
                         <?php if ($pag == null) { 
-                        include_once("home.php"); 
+                        return view('painel-admin.home');
                         
                         } else if ($pag==$menu1) {
                         include_once($menu1.".php");
