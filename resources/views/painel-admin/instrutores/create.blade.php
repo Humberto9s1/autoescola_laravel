@@ -13,25 +13,46 @@
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Valor</label>
-                    <input type="text" class="form-control" id="" name="valor">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Estoque</label>
-                    <input type="text" class="form-control" id="" name="estoque">
+                    <label for="exampleInputEmail1">CPF</label>
+                    <input type="text" class="form-control" id="cpf" name="cpf">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Telefone</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" name="endereco">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Credencial</label>
+                    <input type="text" class="form-control" id="" name="credencial">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Vencimento Credencial</label>
+                    <input type="date" class="form-control" id="data" name="credencial">
                 </div>
             </div>
         </div>
 
-
-
-
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Descrição</label>
-            <textarea class="form-control" id="" name="descricao" rows="3"></textarea>
-        </div>
 
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
