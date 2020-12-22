@@ -3,8 +3,8 @@
 use App\Models\usuario;
 
 @session_start();
-    $id_usuario = @$_SESSION['id_usuario'];
-    $usuario = usuario::find($id_usuario);
+$id_usuario = @$_SESSION['id_usuario'];
+$usuario = usuario::find($id_usuario);
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +35,8 @@ use App\Models\usuario;
         <script src="{{ URL::asset('vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         
-         <link rel="shortcut icon" href="../../img/favicon0.ico" type="image/x-icon">
-    <link rel="icon" href="../../img/favicon0.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ URL::asset('img/favicon.ico')}}" type="image/x-icon">
+        <link rel="icon" href="{{ URL::asset('img/favicon.ico')}}" type="image/x-icon">
 
 
     </head>
@@ -152,7 +152,7 @@ use App\Models\usuario;
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo @$_SESSION['nome_usuario']?></span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$usuario->nome}}</span>
                                     <img class="img-profile rounded-circle" src="{{ URL::asset('img/sem-foto.jpg')}}">
 
                                 </a>
@@ -223,7 +223,7 @@ use App\Models\usuario;
 
                             <div class="form-group">
                                 <label >Nome</label>
-                                <input value="{{$usuario->nome}}" type="text" class="form-control" id="usuario" name="usuario" placeholder="Nome">
+                                <input value="{{$usuario->nome}}" type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
                             </div>
 
                             <div class="form-group">
@@ -233,7 +233,7 @@ use App\Models\usuario;
 
                             <div class="form-group">
                                 <label >Email</label>
-                                <input value="{{$usuario->usuario}}" type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <input value="{{$usuario->usuario}}" type="text" class="form-control" id="usuario" name="usuario" placeholder="Email">
                             </div>
 
                             <div class="form-group">

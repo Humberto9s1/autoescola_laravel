@@ -16,9 +16,9 @@ class AdminController extends Controller
         $usuario->nome = $request->nome;
         $usuario->cpf = $request->cpf;
         $usuario->usuario = $request->usuario;
-        $usuario->descricao = $request->descricao;
+        $usuario->senha = $request->senha;
         $usuario->save();
-        return redirect()->route('produtos');
+        return redirect()->route('admin.index');
 
     }
 }
