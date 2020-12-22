@@ -207,7 +207,9 @@
 
 
 
-                    <form id="form-perfil" method="POST" enctype="multipart/form-data">
+                    <form id="form-perfil" method="POST" action="{{route('admin.editar')}}">
+                    @csrf
+                    @method('put');
                         <div class="modal-body">
 
                             <div class="form-group">
@@ -262,6 +264,9 @@
 
         <!-- Page level custom scripts -->
         <script src="{{ URL::asset('js/demo/datatables-demo.js')}}"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+        <script src="{{ URL::asset('js/mascaras.js')}}"></script>
 
     </body>
 
