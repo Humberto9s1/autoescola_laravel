@@ -1,6 +1,10 @@
-<?php 
-    @session_start();
+<?php
+
+use App\Models\usuario;
+
+@session_start();
     $id_usuario = @$_SESSION['id_usuario'];
+    $usuario = usuario::find($id_usuario);
 ?>
 
 <!DOCTYPE html>
@@ -219,22 +223,22 @@
 
                             <div class="form-group">
                                 <label >Nome</label>
-                                <input value="" type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                                <input value="{{$usuario->nome}}" type="text" class="form-control" id="usuario" name="usuario" placeholder="Nome">
                             </div>
 
                             <div class="form-group">
                                 <label >CPF</label>
-                                <input value="" type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
+                                <input value="{{$usuario->cpf}}" type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF">
                             </div>
 
                             <div class="form-group">
                                 <label >Email</label>
-                                <input value="" type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <input value="{{$usuario->usuario}}" type="email" class="form-control" id="email" name="email" placeholder="Email">
                             </div>
 
                             <div class="form-group">
                                 <label >Senha</label>
-                                <input value="" type="password" class="form-control" id="text" name="senha" placeholder="Senha">
+                                <input value="{{$usuario->senha}}" type="text" class="form-control" id="text" name="senha" placeholder="Senha">
                             </div>
                         </div>
                         <div class="modal-footer">
