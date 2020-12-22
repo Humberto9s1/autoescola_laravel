@@ -20,7 +20,7 @@
         <link href="{{ URL::asset('css/style.css')}}" rel="stylesheet">
         
         <link href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-
+        
 
         <!-- Bootstrap core JavaScript-->
         <script src="{{ URL::asset('vendor/jquery/jquery.min.js')}}"></script>
@@ -28,6 +28,7 @@
         
          <link rel="shortcut icon" href="../../img/favicon0.ico" type="image/x-icon">
     <link rel="icon" href="../../img/favicon0.ico" type="image/x-icon">
+
 
     </head>
 
@@ -40,7 +41,7 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.index')}}">
 
                     <div class="sidebar-brand-text mx-3">Administrador</div>
                 </a>
@@ -169,7 +170,7 @@
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
 
-                       @yield('content')
+                       @yield('content')    
 
                     </div>
                     <!-- /.container-fluid -->
@@ -248,24 +249,24 @@
 
 
         <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
+        <script src="{{ URL::asset('js/sb-admin-2.min.js')}}"></script>
 
         <!-- Page level plugins -->
-        <script src="../vendor/chart.js/Chart.min.js"></script>
+        <script src="{{ URL::asset('vendor/chart.js/Chart.min.js')}}"></script>
 
         <!-- Page level custom scripts -->
-        <script src="../js/demo/chart-area-demo.js"></script>
-        <script src="../js/demo/chart-pie-demo.js"></script>
+        <script src="{{ URL::asset('js/demo/chart-area-demo.js')}}"></script>
+        <script src="{{ URL::asset('js/demo/chart-pie-demo.js')}}"></script>
 
         <!-- Page level plugins -->
-        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="{{ URL::asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
         <!-- Page level custom scripts -->
-        <script src="../js/demo/datatables-demo.js"></script>
+        <script src="{{ URL::asset('js/demo/datatables-demo.js')}}"></script>
 
     </body>
 

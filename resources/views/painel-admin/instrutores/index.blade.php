@@ -3,16 +3,14 @@
 @section('content')
 <?php 
 @session_start();
-if(@$_SESSION['nivel_usuario'] == 'admin'){ 
+if(@$_SESSION['nivel_usuario'] != 'admin'){ 
   echo "<script language='javascript'> window.location='./' </script>";
 }
 if(!isset($id)){
-  $id = ""; 
-  
+  $id = "";  
 }
 
 ?>
-<div class="container">
 
 <a href="" type="button" class="mt-4 mb-4 btn btn-primary">Inserir Instrutor</a>
 
@@ -56,7 +54,6 @@ if(!isset($id)){
 
 
 
-
 </div>
 
 <script type="text/javascript">
@@ -92,7 +89,7 @@ if(!isset($id)){
       </div>
     </div>
   </div>
-</div>
+
 
 <?php 
 if(@$id != ""){
@@ -101,5 +98,3 @@ if(@$id != ""){
 ?>
 
 @endsection
-
-
