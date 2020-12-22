@@ -143,7 +143,7 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nome do usuario</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php @session_start(); echo $_SESSION['nome_usuario']?></span>
                                     <img class="img-profile rounded-circle" src="">
 
                                 </a>
@@ -155,7 +155,7 @@
                                     </a>
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="../logout.php">
+                                    <a class="dropdown-item" href="{{route('usuarios.logout')}}">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
                                         Sair
                                     </a>

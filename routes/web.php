@@ -21,3 +21,4 @@ Route::get('/', HomeController::class)->name('home');
 Route::post('painel', [UsuarioController::class, 'login'])->name('usuarios.login');
 Route::get('instrutores', [CadInstrutoresController::class, 'index'])->name('instrutores.index');
 Route::get('home-admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/', [UsuarioController::class, 'logout'])->name('usuarios.logout');
