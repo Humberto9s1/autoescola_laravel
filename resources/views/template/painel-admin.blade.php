@@ -1,3 +1,8 @@
+<?php 
+    @session_start();
+    $id_usuario = @$_SESSION['id_usuario'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -143,7 +148,7 @@
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php @session_start(); echo @$_SESSION['nome_usuario']?></span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo @$_SESSION['nome_usuario']?></span>
                                     <img class="img-profile rounded-circle" src="{{ URL::asset('img/sem-foto.jpg')}}">
 
                                 </a>
@@ -207,7 +212,7 @@
 
 
 
-                    <form id="form-perfil" method="POST" action="{{route('admin.editar')}}">
+                    <form id="form-perfil" method="POST" action="{{route('admin.editar', $id_usuario)}}">
                     @csrf
                     @method('put');
                         <div class="modal-body">
