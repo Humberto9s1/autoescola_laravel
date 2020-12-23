@@ -1,5 +1,5 @@
 @extends('template.painel-admin')
-@section('title', 'Instrutores')
+@section('title', 'Recepcionistas')
 @section('content')
 <?php 
 @session_start();
@@ -12,7 +12,7 @@ if(!isset($id)){
 
 ?>
 
-<a href="{{route('instrutores.inserir')}}" type="button" class="mt-4 mb-4 btn btn-primary">Inserir Instrutor</a>
+<a href="{{route('recep.inserir')}}" type="button" class="mt-4 mb-4 btn btn-primary">Inserir Recepcionista</a>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">

@@ -1,8 +1,8 @@
 @extends('template.painel-admin')
-@section('title', 'Editar Instrutores')
+@section('title', 'Editar Recepcionista')
 @section('content')
-<h6 class="mb-4"><i>EDIÇÃO DE INSTRUTORES</i></h6><hr>
-<form method="POST" action="{{route('instrutores.editar', $item)}}">
+<h6 class="mb-4"><i>EDIÇÃO DE RECEPCIONISTAS</i></h6><hr>
+<form method="POST" action="{{route('recep.editar', $item)}}">
         @csrf
         @method('put')
         <div class="row">
@@ -40,27 +40,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Credencial</label>
-                    <input value="{{$item->credencial}}" type="text" class="form-control" id="" name="credencial">
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Vencimento Credencial</label>
-                    <input value="{{$item->data_venc}}" type="date" class="form-control" id="data" name="data">
-                </div>
-            </div>
-
-        </div>
-
-
     
         <p align="right">
-        <input value="{{$item->credencial}}" type="hidden" name="oldcredencial">
         <input value="{{$item->cpf}}" type="hidden" name="oldcpf">
         <input value="{{$item->email}}" type="hidden" name="oldemail">
         <button type="submit" class="btn btn-primary">Salvar</button>
