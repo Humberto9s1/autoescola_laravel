@@ -37,19 +37,28 @@ class CadInstrutoresController extends Controller
         return redirect()->route('instrutores.index');
     }
 
-    public function edit(produto $produto){
-        return view('produtos.edit', ['produto' => $produto]);   
+    public function edit(instrutore $tabela){
+        return view('instrutores.edit', ['item' => $tabela]);   
      }
  
  
-     public function editar(Request $request, produto $produto){
-         
-         $produto->nome = $request->nome;
-         $produto->valor = $request->valor;
-         $produto->estoque = $request->estoque;
-         $produto->descricao = $request->descricao;
-         $produto->save();
-         return redirect()->route('produtos');
+     public function editar(Request $request, instrutore $tabela){
+        $tabela->nome = $request->nome;
+        $tabela->email = $request->email;
+        $tabela->cpf = $request->cpf;
+        $tabela->telefone = $request->telefone;
+        $tabela->endereco = $request->endereco;
+        $tabela->credencial = $request->credencial;
+        $tabela->data_venc = $request->data;
+
+        $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->orwhere('email', '=', $request->email)->count();
+        if ($itens > 0) {
+            echo "<script language='javascript'> window.alert('Registro já Cadastrado') </script>";
+            return view('painel-admin.instrutores.create');    
+        }
+
+        $tabela->save();
+        return redirect()->route('instrutores.index');
  
      }
  
