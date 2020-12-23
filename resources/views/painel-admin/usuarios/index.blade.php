@@ -21,9 +21,9 @@ if(!isset($id)){
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Email</th>
-          <th>CPF</th>
-          <th>Telefone</th>
+          <th>Usuário</th>
+          <th>Senha</th>
+          <th>Nível</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -33,9 +33,9 @@ if(!isset($id)){
       
          <tr>
             <td>{{$item->nome}}</td>
-            <td>{{$item->email}}</td>
-            <td>{{$item->cpf}}</td>
-            <td>{{$item->telefone}}</td>
+            <td>{{$item->usuario}}</td>
+            <td>{{$item->senha}}</td>
+            <td>{{$item->nivel}}</td>
             <td>
             <a href="{{route('usuarios.modal', $item)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
             </td>
