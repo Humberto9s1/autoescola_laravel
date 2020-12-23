@@ -51,10 +51,14 @@ class CadInstrutoresController extends Controller
         $item->credencial = $request->credencial;
         $item->data_venc = $request->data;
 
+        $oldcredencial = $request->oldcredencial;
+        $oldcpf = $request->oldcpf;
+        $oldemail = $request->oldemail;
+
         $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->orwhere('email', '=', $request->email)->count();
         if ($itens > 0) {
             echo "<script language='javascript'> window.alert('Registro já Cadastrado') </script>";
-            return view('painel-admin.instrutores.edit');    
+            return view('painel-admin.instrutores.edit', ['item' => $item]);   
         }
 
         $item->save();

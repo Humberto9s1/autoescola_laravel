@@ -4,7 +4,7 @@
 <h6 class="mb-4"><i>EDIÇÃO DE INSTRUTORES</i></h6><hr>
 <form method="POST" action="{{route('instrutores.editar', $item)}}">
         @csrf
-        @method('put');
+        @method('put')
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
@@ -60,6 +60,9 @@
 
     
         <p align="right">
+        <input value="{{$item->credencial}}" type="hidden" name="oldcredencial">
+        <input value="{{$item->cpf}}" type="hidden" name="oldcpf">
+        <input value="{{$item->email}}" type="hidden" name="oldemail">
         <button type="submit" class="btn btn-primary">Salvar</button>
         </p>
     </form>
