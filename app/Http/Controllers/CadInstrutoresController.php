@@ -84,14 +84,14 @@ class CadInstrutoresController extends Controller
  
      }
 
-     public function delete(produto $produto){
-        $produto->delete();
-        return redirect()->route('produtos');
+     public function delete(instrutore $item){
+        $item->delete();
+        return redirect()->route('instrutores.index');
      }
 
     public function modal($id){
-        $produtos = produto::orderby('id', 'desc')->paginate();
-        return view('produtos.index', ['produtos' => $produtos, 'id' => $id]);
+        $item = instrutore::orderby('id', 'desc')->paginate();
+        return view('painel-admin.instrutores.index', ['item' => $item, 'id' => $id]);
 
      }
 
