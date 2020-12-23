@@ -21,7 +21,7 @@ Route::get('/', HomeController::class)->name('home');
 Route::post('painel', [UsuarioController::class, 'login'])->name('usuarios.login');
 
 Route::get('instrutores', [CadInstrutoresController::class, 'index'])->name('instrutores.index');
-Route::put('instrutores.insert', [CadInstrutoresController::class, 'insert'])->name('instrutores.insert');
+Route::post('instrutores.insert', [CadInstrutoresController::class, 'insert'])->name('instrutores.insert');
 Route::get('instrutores/inserir', [CadInstrutoresController::class, 'create'])->name('instrutores.inserir');
 
 Route::get('home-admin', [AdminController::class, 'index'])->name('admin.index');

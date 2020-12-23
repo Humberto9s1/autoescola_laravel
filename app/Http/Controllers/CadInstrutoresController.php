@@ -18,13 +18,15 @@ class CadInstrutoresController extends Controller
     }
 
     public function insert(Request $request){
-        $produto = new Produto();
-        $produto->nome = $request->nome;
-        $produto->valor = $request->valor;
-        $produto->estoque = $request->estoque;
-        $produto->descricao = $request->descricao;
-        $produto->save();
-        return redirect()->route('produtos');
-
+        $tabela = new instrutore();
+        $tabela->nome = $request->nome;
+        $tabela->email = $request->email;
+        $tabela->cpf = $request->cpf;
+        $tabela->telefone = $request->telefone;
+        $tabela->endereco = $request->endereco;
+        $tabela->credencial = $request->credencial;
+        $tabela->data_venc = $request->data;
+        $tabela->save();
+        return redirect()->route('instrutores.index');
     }
 }

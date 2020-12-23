@@ -1,6 +1,7 @@
 @extends('template.painel-admin')
 @section('title', 'Instrutores')
 @section('content')
+<h6 class="mb-4"><i>CADASTRO DE INSTRUTORES</i></h6><hr>
 <form method="POST" action="{{route('instrutores.insert')}}">
         @csrf
 
@@ -14,7 +15,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <input type="email" class="form-control" id="" name="email">
                 </div>
             </div>
             <div class="col-md-4">
@@ -31,6 +32,7 @@
                     <input type="text" class="form-control" id="telefone" name="telefone">
                 </div>
             </div>
+
             <div class="col-md-8">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Endereço</label>
@@ -45,15 +47,20 @@
                     <input type="text" class="form-control" id="" name="credencial">
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Vencimento Credencial</label>
-                    <input type="date" class="form-control" id="data" name="credencial">
+                    <input type="date" class="form-control" id="data" name="data">
                 </div>
             </div>
+
         </div>
 
 
-        <button type="submit" class="btn btn-primary">Enviar</button>
+    
+        <p align="right">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        </p>
     </form>
 @endsection
