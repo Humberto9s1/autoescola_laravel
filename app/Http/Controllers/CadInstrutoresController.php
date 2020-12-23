@@ -38,7 +38,7 @@ class CadInstrutoresController extends Controller
     }
 
     public function edit(instrutore $tabela){
-        return view('instrutores.edit', ['item' => $tabela]);   
+        return view('painel-admin.instrutores.edit', ['item' => $tabela]);   
      }
  
  
@@ -54,7 +54,7 @@ class CadInstrutoresController extends Controller
         $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->orwhere('email', '=', $request->email)->count();
         if ($itens > 0) {
             echo "<script language='javascript'> window.alert('Registro já Cadastrado') </script>";
-            return view('painel-admin.instrutores.create');    
+            return view('painel-admin.instrutores.edit');    
         }
 
         $tabela->save();

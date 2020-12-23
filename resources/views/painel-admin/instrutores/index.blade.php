@@ -43,8 +43,8 @@ if(!isset($id)){
             <td>{{$item->telefone}}</td>
             <td>{{$data}}</td>
             <td>
-            <a href=""><i class="fas fa-edit text-info mr-1"></i></a>
-            <a href=""><i class="fas fa-trash text-danger mr-1"></i></a>
+            <a href="{{route('instrutores.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
+            <a href="{{route('produtos.modal', $produto)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
             </td>
         </tr>
         @endforeach 
