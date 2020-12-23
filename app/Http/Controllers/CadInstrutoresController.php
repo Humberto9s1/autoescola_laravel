@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\instrutor;
 use App\Models\instrutore;
+use App\Models\usuario;
 use Illuminate\Http\Request;
 
 class CadInstrutoresController extends Controller
@@ -27,6 +28,14 @@ class CadInstrutoresController extends Controller
         $tabela->credencial = $request->credencial;
         $tabela->data_venc = $request->data;
 
+        $tabela2 = new usuario();
+        $tabela2->nome = $request->nome;
+        $tabela2->usuario = $request->email;
+        $tabela2->cpf = $request->cpf;
+        $tabela2->senha = '123';
+        $tabela2->nivel = 'instrutor';
+
+
         $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->orwhere('email', '=', $request->email)->count();
         if ($itens > 0) {
             echo "<script language='javascript'> window.alert('Registro já Cadastrado') </script>";
@@ -34,6 +43,7 @@ class CadInstrutoresController extends Controller
         }
 
         $tabela->save();
+        $tabela2->save();
         return redirect()->route('instrutores.index');
     }
 
@@ -91,7 +101,7 @@ class CadInstrutoresController extends Controller
 
     public function modal($id){
         $item = instrutore::orderby('id', 'desc')->paginate();
-        return view('painel-admin.instrutores.index', ['item' => $item, 'id' => $id]);
+        return view('painel-admin.instrutores.index', ['itens' => $item, 'id' => $id]);
 
      }
 
