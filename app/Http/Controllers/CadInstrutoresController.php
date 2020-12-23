@@ -51,20 +51,49 @@ class CadInstrutoresController extends Controller
         $item->credencial = $request->credencial;
         $item->data_venc = $request->data;
 
-        $oldcredencial = $request->oldcredencial;
         $oldcpf = $request->oldcpf;
         $oldemail = $request->oldemail;
+        $oldcredencial = $request->oldcredencial;
 
-        $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->orwhere('email', '=', $request->email)->count();
-        if ($itens > 0) {
-            echo "<script language='javascript'> window.alert('Registro já Cadastrado') </script>";
-            return view('painel-admin.instrutores.edit', ['item' => $item]);   
+        if ($oldcpf != $request->cpf) {
+            $itens = instrutore::where('cpf', '=', $request->cpf)->count();
+            if ($itens > 0) {
+                echo "<script language='javascript'> window.alert('CPF já Cadastrado') </script>";
+                return view('painel-admin.instrutores.edit', ['item' => $item]);   
+            }    
+        }
+
+        if ($oldcredencial != $request->credencial) {
+            $itens = instrutore::where('credencial', '=', $request->credencial)->count();
+            if ($itens > 0) {
+                echo "<script language='javascript'> window.alert('Credencial já Cadastrado') </script>";
+                return view('painel-admin.instrutores.edit', ['item' => $item]);   
+            }    
+        }
+
+        if ($oldemail != $request->email) {
+            $itens = instrutore::where('email', '=', $request->email)->count();
+            if ($itens > 0) {
+                echo "<script language='javascript'> window.alert('Email já Cadastrado') </script>";
+                return view('painel-admin.instrutores.edit', ['item' => $item]);   
+            }    
         }
 
         $item->save();
         return redirect()->route('instrutores.index');
  
      }
- 
+
+     public function delete(produto $produto){
+        $produto->delete();
+        return redirect()->route('produtos');
+     }
+
+    public function modal($id){
+        $produtos = produto::orderby('id', 'desc')->paginate();
+        return view('produtos.index', ['produtos' => $produtos, 'id' => $id]);
+
+     }
+
 
 }
