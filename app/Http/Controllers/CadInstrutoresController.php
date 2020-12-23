@@ -37,19 +37,19 @@ class CadInstrutoresController extends Controller
         return redirect()->route('instrutores.index');
     }
 
-    public function edit(instrutore $tabela){
-        return view('painel-admin.instrutores.edit', ['item' => $tabela]);   
+    public function edit(instrutore $item){
+        return view('painel-admin.instrutores.edit', ['item' => $item]);   
      }
  
  
-     public function editar(Request $request, instrutore $tabela){
-        $tabela->nome = $request->nome;
-        $tabela->email = $request->email;
-        $tabela->cpf = $request->cpf;
-        $tabela->telefone = $request->telefone;
-        $tabela->endereco = $request->endereco;
-        $tabela->credencial = $request->credencial;
-        $tabela->data_venc = $request->data;
+     public function editar(Request $request, instrutore $item){
+        $item->nome = $request->nome;
+        $item->email = $request->email;
+        $item->cpf = $request->cpf;
+        $item->telefone = $request->telefone;
+        $item->endereco = $request->endereco;
+        $item->credencial = $request->credencial;
+        $item->data_venc = $request->data;
 
         $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->orwhere('email', '=', $request->email)->count();
         if ($itens > 0) {
@@ -57,7 +57,7 @@ class CadInstrutoresController extends Controller
             return view('painel-admin.instrutores.edit');    
         }
 
-        $tabela->save();
+        $item->save();
         return redirect()->route('instrutores.index');
  
      }

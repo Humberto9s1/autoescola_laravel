@@ -2,9 +2,9 @@
 @section('title', 'Editar Instrutores')
 @section('content')
 <h6 class="mb-4"><i>EDIÇÃO DE INSTRUTORES</i></h6><hr>
-<form method="POST" action="{{route('instrutores.editar')}}">
+<form method="POST" action="{{route('instrutores.editar', $item)}}">
         @csrf
-
+        @method('put');
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
