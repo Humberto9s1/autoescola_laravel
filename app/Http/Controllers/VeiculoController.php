@@ -25,7 +25,7 @@ class VeiculoController extends Controller
         $tabela->marca = $request->marca;
         $tabela->ano = $request->ano;
         $tabela->data_revisao = $request->nomedata_revisao;
-        
+        $tabela->instrutor = $request->instrutor;
                 
         $itens = veiculo::where('placa', '=', $request->placa)->count();
         if ($itens > 0) {
@@ -50,6 +50,7 @@ class VeiculoController extends Controller
         $item->marca = $request->marca;
         $item->ano = $request->ano;
         $item->data_revisao = $request->nomedata_revisao;
+        $item->instrutor = $request->instrutor;
         
         $old = $request->old;
 

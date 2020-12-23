@@ -15,13 +15,23 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Categoria</label>
-                    <input  type="text" class="form-control" id="" name="categoria" required>
+                    <select class="form-control" name="categoria" id="categoria">
+                    <option value='0' >0</option>
+                    </select>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Km</label>
                     <input  type="text" class="form-control" id="" name="km" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Instrutor</label>
+                    <select class="form-control" name="instrutor">
+                    <option value='0' >0</option>
+                    </select>
                 </div>
             </div>
         </div>
