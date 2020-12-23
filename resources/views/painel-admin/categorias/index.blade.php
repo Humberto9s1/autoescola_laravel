@@ -12,7 +12,7 @@ if(!isset($id)){
 
 ?>
 
-<a href="{{route('recep.inserir')}}" type="button" class="mt-4 mb-4 btn btn-primary">Inserir Recepcionista</a>
+<a href="{{route('categorias.inserir')}}" type="button" class="mt-4 mb-4 btn btn-primary">Inserir Categoria</a>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -23,9 +23,6 @@ if(!isset($id)){
       <thead>
         <tr>
           <th>Nome</th>
-          <th>Email</th>
-          <th>CPF</th>
-          <th>Telefone</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -35,12 +32,9 @@ if(!isset($id)){
       
          <tr>
             <td>{{$item->nome}}</td>
-            <td>{{$item->email}}</td>
-            <td>{{$item->cpf}}</td>
-            <td>{{$item->telefone}}</td>
             <td>
-            <a href="{{route('recep.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
-            <a href="{{route('recep.modal', $item)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
+            <a href="{{route('categorias.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
+            <a href="{{route('categorias.modal', $item)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
             </td>
         </tr>
         @endforeach 
@@ -76,7 +70,7 @@ if(!isset($id)){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <form method="POST" action="{{route('recep.delete', $id)}}">
+        <form method="POST" action="{{route('categorias.delete', $id)}}">
           @csrf
           @method('delete')
           <button type="submit" class="btn btn-danger">Excluir</button>

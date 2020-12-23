@@ -19,12 +19,9 @@ class CategoriaController extends Controller
     public function insert(Request $request){        
         $tabela = new categoria();
         $tabela->nome = $request->nome;
-        $tabela->email = $request->email;
-        $tabela->cpf = $request->cpf;
-        $tabela->telefone = $request->telefone;
-        $tabela->endereco = $request->endereco;
+        
                 
-        $itens = categoria::where('cpf', '=', $request->cpf)->orwhere('email', '=', $request->email)->count();
+        $itens = categoria::where('nome', '=', $request->nome)->count();
         if ($itens > 0) {
             echo "<script language='javascript'> window.alert('Categoria já Cadastrado') </script>";
             return view('painel-admin.categorias.create');   

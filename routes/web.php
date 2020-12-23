@@ -42,7 +42,7 @@ Route::get('usuarios', [UsuarioController::class, 'index'])->name('usuarios.inde
 Route::delete('usuarios/{item}', [UsuarioController::class, 'delete'])->name('usuarios.delete');
 Route::get('usuarios/{item}/delete', [UsuarioController::class, 'modal'])->name('usuarios.modal');
 
-Route::get('categorias', [RecepController::class, 'index'])->name('categorias.index');
+Route::get('categorias', [CategoriaController::class, 'index'])->name('categorias.index');
 Route::post('categorias.insert', [CategoriaController::class, 'insert'])->name('categorias.insert');
 Route::get('categorias/inserir', [CategoriaController::class, 'create'])->name('categorias.inserir');
 Route::get('categorias/{item}/edit', [CategoriaController::class, 'edit'])->name('categorias.edit');
