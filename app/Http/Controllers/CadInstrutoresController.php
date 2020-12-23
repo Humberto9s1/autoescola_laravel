@@ -17,7 +17,7 @@ class CadInstrutoresController extends Controller
         return view('painel-admin.instrutores.create');
     }
 
-    public function insert(Request $request){
+    public function insert(Request $request){        
         $tabela = new instrutore();
         $tabela->nome = $request->nome;
         $tabela->email = $request->email;
@@ -26,7 +26,11 @@ class CadInstrutoresController extends Controller
         $tabela->endereco = $request->endereco;
         $tabela->credencial = $request->credencial;
         $tabela->data_venc = $request->data;
-        $tabela->save();
-        return redirect()->route('instrutores.index');
+
+        $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->count();
+        echo $itens;
+
+        //$tabela->save();
+        //return redirect()->route('instrutores.index');
     }
 }
