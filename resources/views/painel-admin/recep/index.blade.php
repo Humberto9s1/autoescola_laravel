@@ -26,25 +26,21 @@ if(!isset($id)){
           <th>Email</th>
           <th>CPF</th>
           <th>Telefone</th>
-          <th>Vencimento</th>
           <th>Ações</th>
         </tr>
       </thead>
 
       <tbody>
       @foreach($itens as $item)      
-      <?php 
-       $data = implode('/', array_reverse(explode('-', $item->data_venc)));
-       ?>
+      
          <tr>
             <td>{{$item->nome}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->cpf}}</td>
             <td>{{$item->telefone}}</td>
-            <td>{{$data}}</td>
             <td>
-            <a href="{{route('instrutores.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
-            <a href="{{route('instrutores.modal', $item)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
+            <a href="{{route('recep.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
+            <a href="{{route('recep.modal', $item)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
             </td>
         </tr>
         @endforeach 
@@ -54,11 +50,7 @@ if(!isset($id)){
 </div>
 </div>
 
-
-
-
 </div>
-
 <script type="text/javascript">
   $(document).ready(function () {
     $('#dataTable').dataTable({
@@ -84,7 +76,7 @@ if(!isset($id)){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <form method="POST" action="{{route('instrutores.delete', $id)}}">
+        <form method="POST" action="{{route('recep.delete', $id)}}">
           @csrf
           @method('delete')
           <button type="submit" class="btn btn-danger">Excluir</button>
