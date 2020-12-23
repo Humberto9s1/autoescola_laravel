@@ -37,6 +37,9 @@ Route::put('recep/{item}', [RecepController::class, 'editar'])->name('recep.edit
 Route::delete('recep/{item}', [RecepController::class, 'delete'])->name('recep.delete');
 Route::get('recep/{item}/delete', [RecepController::class, 'modal'])->name('recep.modal');
 
+Route::get('usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+Route::delete('usuarios/{item}', [UsuarioController::class, 'delete'])->name('usuarios.delete');
+Route::get('usuarios/{item}/delete', [UsuarioController::class, 'modal'])->name('usuarios.modal');
 
 Route::get('home-admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/', [UsuarioController::class, 'logout'])->name('usuarios.logout');

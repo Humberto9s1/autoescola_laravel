@@ -79,6 +79,7 @@ $usuario = usuario::find($id_usuario);
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="{{route('instrutores.index')}}">Instrutores</a>
                             <a class="collapse-item" href="{{route('recep.index')}}">Recepcionistas</a>
+                            <a class="collapse-item" href="{{route('usuarios.index')}}">Usuários</a>
                         </div>
                     </div>
                 </li>
