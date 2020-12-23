@@ -27,10 +27,13 @@ class CadInstrutoresController extends Controller
         $tabela->credencial = $request->credencial;
         $tabela->data_venc = $request->data;
 
-        $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->count();
-        echo $itens;
+        $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->orwhere('email', '=', $request->email)->count();
+        if ($itens > 0) {
+            echo "<script language='javascript'> window.alert('Registro já Cadastrado') </script>";
+            return redirect()->route('instrutores.inserir');    
+        }
 
-        //$tabela->save();
-        //return redirect()->route('instrutores.index');
+        $tabela->save();
+        return redirect()->route('instrutores.index');
     }
 }
