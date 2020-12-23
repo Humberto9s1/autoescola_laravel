@@ -1,20 +1,58 @@
 @extends('template.painel-admin')
-@section('title', 'Inserir Categoria')
+@section('title', 'Inserir Veículo')
 @section('content')
-<h6 class="mb-4"><i>CADASTRO DE CATEGORIAS</i></h6><hr>
-<form method="POST" action="{{route('categorias.insert')}}">
+<h6 class="mb-4"><i>CADASTRO DE VEÍCULOS</i></h6><hr>
+<form method="POST" action="{{route('veiculos.insert')}}">
         @csrf
 
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Nome</label>
-                    <input  type="text" class="form-control" id="" name="nome" required>
+                    <label for="exampleInputEmail1">Placa</label>
+                    <input  type="text" class="form-control" id="" name="placa" required>
                 </div>
             </div>
-
-            <button type="submit" class="btn btn-primary mt-4 mb-3">Salvar</button>
-
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Categoria</label>
+                    <input  type="text" class="form-control" id="" name="categoria" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Km</label>
+                    <input  type="text" class="form-control" id="" name="km" required>
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Cor</label>
+                    <input  type="text" class="form-control" id="" name="cor" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Marca</label>
+                    <input  type="text" class="form-control" id="" name="marca" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ano</label>
+                    <input  type="text" class="form-control" id="" name="ano" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Última Revisão</label>
+                    <input type="date" class="form-control" id="data" name="data">
+                </div>
+            </div>
+        </div>
+        <p align="right">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        </p>
     </form>
 @endsection
