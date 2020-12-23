@@ -18,7 +18,6 @@ class VeiculoController extends Controller
 
     public function insert(Request $request){        
         $tabela = new veiculo();
-        $tabela->nome = $request->nome;
         $tabela->placa = $request->placa;
         $tabela->categoria = $request->categoria;
         $tabela->km = $request->km;
@@ -45,7 +44,13 @@ class VeiculoController extends Controller
  
      public function editar(Request $request, veiculo $item){
         $item->placa = $request->placa;
-
+        $item->categoria = $request->categoria;
+        $item->km = $request->km;
+        $item->cor = $request->cor;
+        $item->marca = $request->marca;
+        $item->ano = $request->ano;
+        $item->data_revisao = $request->nomedata_revisao;
+        
         $old = $request->old;
 
         if ($old != $request->placa) {

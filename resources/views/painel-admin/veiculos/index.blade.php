@@ -1,5 +1,5 @@
 @extends('template.painel-admin')
-@section('title', 'Categorias')
+@section('title', 'Veiculos')
 @section('content')
 <?php 
 @session_start();
@@ -12,7 +12,7 @@ if(!isset($id)){
 
 ?>
 
-<a href="{{route('categorias.inserir')}}" type="button" class="mt-4 mb-4 btn btn-primary">Inserir Categoria</a>
+<a href="{{route('veiculos.inserir')}}" type="button" class="mt-4 mb-4 btn btn-primary">Inserir Veículo</a>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -22,19 +22,33 @@ if(!isset($id)){
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>
-          <th>Nome</th>
+          <th>Placa</th>
+          <th>Categoria</th>
+          <th>Km</th>
+          <th>Cor</th>
+          <th>Marca</th>
+          <th>Ano</th>
+          <th>Revisão</th>
           <th>Ações</th>
         </tr>
       </thead>
 
       <tbody>
       @foreach($itens as $item)      
-      
+      <?php 
+       $data = implode('/', array_reverse(explode('-', $item->data_revisao)));
+       ?>
          <tr>
-            <td>{{$item->nome}}</td>
+            <td>{{$item->placa}}</td>
+            <td>{{$item->categoria}}</td>
+            <td>{{$item->km}}</td>
+            <td>{{$item->cor}}</td>
+            <td>{{$item->marca}}</td>
+            <td>{{$item->ano}}</td>
+            <td>{{data}}</td>
             <td>
-            <a href="{{route('categorias.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
-            <a href="{{route('categorias.modal', $item)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
+            <a href="{{route('veiculos.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
+            <a href="{{route('veiculos.modal', $item)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
             </td>
         </tr>
         @endforeach 
@@ -70,7 +84,7 @@ if(!isset($id)){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <form method="POST" action="{{route('categorias.delete', $id)}}">
+        <form method="POST" action="{{route('veiculos.delete', $id)}}">
           @csrf
           @method('delete')
           <button type="submit" class="btn btn-danger">Excluir</button>
