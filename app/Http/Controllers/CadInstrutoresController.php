@@ -30,10 +30,28 @@ class CadInstrutoresController extends Controller
         $itens = instrutore::where('cpf', '=', $request->cpf)->orwhere('credencial', '=', $request->credencial)->orwhere('email', '=', $request->email)->count();
         if ($itens > 0) {
             echo "<script language='javascript'> window.alert('Registro já Cadastrado') </script>";
-            return redirect()->route('instrutores.inserir');    
+            return view('painel-admin.instrutores.create');    
         }
 
         $tabela->save();
         return redirect()->route('instrutores.index');
     }
+
+    public function edit(produto $produto){
+        return view('produtos.edit', ['produto' => $produto]);   
+     }
+ 
+ 
+     public function editar(Request $request, produto $produto){
+         
+         $produto->nome = $request->nome;
+         $produto->valor = $request->valor;
+         $produto->estoque = $request->estoque;
+         $produto->descricao = $request->descricao;
+         $produto->save();
+         return redirect()->route('produtos');
+ 
+     }
+ 
+
 }

@@ -32,13 +32,16 @@ if(!isset($id)){
       </thead>
 
       <tbody>
-      @foreach($itens as $item)
+      @foreach($itens as $item)      
+      <?php 
+       $data = implode('/', array_reverse(explode('-', $item->data_venc)));
+       ?>
          <tr>
             <td>{{$item->nome}}</td>
             <td>{{$item->email}}</td>
             <td>{{$item->cpf}}</td>
             <td>{{$item->telefone}}</td>
-            <td>{{$item->vencimento}}</td>
+            <td>{{$data}}</td>
             <td>
             <a href=""><i class="fas fa-edit text-info mr-1"></i></a>
             <a href=""><i class="fas fa-trash text-danger mr-1"></i></a>
