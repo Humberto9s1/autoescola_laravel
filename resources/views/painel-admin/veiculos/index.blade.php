@@ -1,7 +1,10 @@
 @extends('template.painel-admin')
 @section('title', 'Veiculos')
 @section('content')
-<?php 
+<?php
+
+use App\Models\instrutore;
+
 @session_start();
 if(@$_SESSION['nivel_usuario'] != 'admin'){ 
   echo "<script language='javascript'> window.location='./' </script>";
@@ -38,6 +41,12 @@ if(!isset($id)){
       @foreach($itens as $item)      
       <?php 
        $data = implode('/', array_reverse(explode('-', $item->data_revisao)));
+       $instrutor = instrutore::where('id', '=', $item->instrutor)->first();
+       if ($item->instrutor != 0) {
+        $instrutor = $instrutor->nome; 
+       }else{
+        $instrutor = 'Nenhum Instrutor';
+       }
        ?>
          <tr>
             <td>{{$item->placa}}</td>
@@ -46,7 +55,7 @@ if(!isset($id)){
             <td>{{$item->cor}}</td>
             <td>{{$item->marca}}</td>
             <td>{{$item->ano}}</td> 
-            <td>{{$item->instrutor}}</td>
+            <td>{{$instrutor}}</td>
             <td>{{$data}}</td>
             <td>
             <a href="{{route('veiculos.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
