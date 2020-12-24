@@ -24,7 +24,7 @@ class VeiculoController extends Controller
         $tabela->cor = $request->cor;
         $tabela->marca = $request->marca;
         $tabela->ano = $request->ano;
-        $tabela->data_revisao = $request->nomedata_revisao;
+        $tabela->data_revisao = $request->data;
         $tabela->instrutor = $request->instrutor;
                 
         $itens = veiculo::where('placa', '=', $request->placa)->count();
@@ -49,7 +49,7 @@ class VeiculoController extends Controller
         $item->cor = $request->cor;
         $item->marca = $request->marca;
         $item->ano = $request->ano;
-        $item->data_revisao = $request->nomedata_revisao;
+        $item->data_revisao = $request->data;
         $item->instrutor = $request->instrutor;
         
         $old = $request->old;

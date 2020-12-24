@@ -28,6 +28,7 @@ if(!isset($id)){
           <th>Cor</th>
           <th>Marca</th>
           <th>Ano</th>
+          <th>Instrutor</th>
           <th>Revisão</th>
           <th>Ações</th>
         </tr>
@@ -44,8 +45,9 @@ if(!isset($id)){
             <td>{{$item->km}}</td>
             <td>{{$item->cor}}</td>
             <td>{{$item->marca}}</td>
-            <td>{{$item->ano}}</td>
-            <td>{{data}}</td>
+            <td>{{$item->ano}}</td> 
+            <td>{{$item->instrutor}}</td>
+            <td>{{$data}}</td>
             <td>
             <a href="{{route('veiculos.edit', $item)}}"><i class="fas fa-edit text-info mr-1"></i></a>
             <a href="{{route('veiculos.modal', $item)}}"><i class="fas fa-trash text-danger mr-1"></i></a>
