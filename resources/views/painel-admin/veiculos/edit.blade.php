@@ -2,7 +2,7 @@
 @section('title', 'Editar Categora')
 @section('content')
 <h6 class="mb-4"><i>EDIÇÃO DE CATEGOTIAS</i></h6><hr>
-<form method="POST" action="{{route('categorias.editar', $item)}}">
+<form method="POST" action="{{route('veiculos.editar', $item)}}">
         @csrf
         @method('put')
         <div class="row">
@@ -41,11 +41,20 @@
                     <select class="form-control" name="instrutor">
                     <?php
                             use App\Models\instrutore;
-                            $tabela=instrutore::all();            
+                            $tabela=instrutore::all();  
+                            
+                            $instrutor = instrutore::where('id', '=', $item->instrutor)->first();
+                            if ($item->instrutor != 0) {
+                                $instrutor = $instrutor->nome; 
+                            }else{
+                                $instrutor = '0';
+                            }
+
                         ?>
                         <option value='{{$item->instrutor}}' >{{$instrutor}}</option>
+                        <option value='0' >Selecione o Instrutor</option>
                         @foreach($tabela as $val)
-                        <?php if ($item->categoria!= $val->nome) {?>
+                        <?php if ($instrutor!= $val->nome) {?>
                                 <option value='{{$val->nome}}' >{{$val->nome}}</option>
                         <?php } ?>
                         @endforeach
