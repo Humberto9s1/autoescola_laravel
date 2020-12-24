@@ -6,16 +6,82 @@
         @csrf
         @method('put')
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Nome</label>
-                    <input value="{{$item->nome}}" type="text" class="form-control" id="" name="nome" required>
+                    <label for="exampleInputEmail1">Placa</label>
+                    <input value="{{$item->placa}}" type="text" class="form-control" id="" name="placa" required>
                 </div>
             </div>
-
-            <input value="{{$item->nome}}" type="hidden" name="old">
-            <button type="submit" class="btn btn-primary mt-4 mb-3">Salvar</button>
-
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Categoria</label>
+                    <select class="form-control" name="categoria" id="categoria">
+                        <?php
+                            use App\Models\categoria;
+                            $tabela=categoria::all();            
+                        ?>
+                        <option value='{{$item->categoria}}' >{{$item->categoria}}</option>
+                        @foreach($tabela as $val)
+                        <?php if ($item->categoria!= $val->nome) {?>
+                                <option value='{{$val->nome}}' >{{$val->nome}}</option>
+                        <?php } ?>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Km</label>
+                    <input value="{{$item->km}}"  type="text" class="form-control" id="" name="km" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Instrutor</label>
+                    <select class="form-control" name="instrutor">
+                    <?php
+                            use App\Models\instrutore;
+                            $tabela=instrutore::all();            
+                        ?>
+                        <option value='{{$item->instrutor}}' >{{$instrutor}}</option>
+                        @foreach($tabela as $val)
+                        <?php if ($item->categoria!= $val->nome) {?>
+                                <option value='{{$val->nome}}' >{{$val->nome}}</option>
+                        <?php } ?>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Cor</label>
+                    <input value="{{$item->cor}}"  type="text" class="form-control" id="" name="cor" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Marca</label>
+                    <input value="{{$item->marca}}"  type="text" class="form-control" id="" name="marca" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ano</label>
+                    <input value="{{$item->ano}}"  type="text" class="form-control" id="" name="ano" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Última Revisão</label>
+                    <input value="{{$item->data_revisao}}" type="date" class="form-control" id="data" name="data" >
+                </div>
+            </div>
+        </div>
+        <p align="right">
+        <input  type="hidden" class="btn btn-primary" name="old" value="{{$item->placa}}">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        </p>
     </form>
 @endsection
