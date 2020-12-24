@@ -16,7 +16,14 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Categoria</label>
                     <select class="form-control" name="categoria" id="categoria">
-                    <option value='0' >0</option>
+                        <?php
+                            use App\Models\categoria;
+                            $tabela=categoria::all();            
+                        ?>
+                        <option value='0' >Selecione a Categoria</option>
+                        @foreach($tabela as $item)
+                        <option value='{{$item->nome}}' >{{$item->nome}}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -30,7 +37,14 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Instrutor</label>
                     <select class="form-control" name="instrutor">
-                    <option value='0' >0</option>
+                    <?php
+                            use App\Models\instrutore;
+                            $tabela=instrutore::all();            
+                        ?>
+                        <option value='0' >Selecione o Instrutor</option>
+                        @foreach($tabela as $item)
+                        <option value='{{$item->id}}' >{{$item->nome}}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
